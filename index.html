@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus AI - Pro UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="toast">Link copied successfully!</div>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div><button class="side-btn active"><i class="fas fa-plus"></i></button><button class="side-btn"><i class="fas fa-comment-dots"></i></button></div>
+            <button class="side-btn"><i class="fas fa-gear"></i></button>
+        </aside>
+        <main class="main-content">
+            <div class="chat-card">
+                <div id="historyBox">
+                    <div style="display:flex; justify-content:space-between; align-items: center; margin-bottom:15px;">
+                        <h3 id="histTitle" style="color: var(--accent-green);">Chat History</h3>
+                        <i class="fas fa-times" onclick="closeHistory()" style="color:red; cursor:pointer;"></i>
+                    </div>
+                    <div id="historyContent"></div>
+                </div>
+                <header class="chat-header">
+                    <div class="bot-profile">
+                        <div class="bot-avatar"><img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Robot"></div>
+                        <div class="status-info"><h2>Nexus AI</h2><span>● Online</span></div>
+                    </div>
+                    <div class="menu-container">
+                        <i class="fas fa-ellipsis-vertical" id="menuToggle" style="color: var(--text-muted); padding: 10px; cursor: pointer;"></i>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <div class="menu-item" onclick="toggleLightMode()"><i class="fas fa-sun"></i> Light/Dark Mode</div>
+                            <div class="menu-item" onclick="shareWhatsApp()"><i class="fab fa-whatsapp"></i> Share WhatsApp</div>
+                            <div class="menu-item" onclick="shareInstagram()"><i class="fab fa-instagram"></i> Instagram</div>
+                            <div class="menu-item" onclick="shareSMS()"><i class="fas fa-comment-sms"></i> Send as Message</div>
+                            <div class="menu-item" onclick="copyCurrentLink()"><i class="fas fa-link"></i> Copy Link</div>
+                            <div class="menu-item" onclick="showHistory()"><i class="fas fa-history"></i> Chat History</div>
+                            <div class="menu-item" onclick="clearChat()"><i class="fas fa-trash"></i> Clear All</div>
+                        </div>
+                    </div>
+                </header>
+                <div class="chat-body" id="chatBox"></div>
+                <footer class="chat-footer">
+                    <div class="pill-row">
+                        <button class="pill" onclick="pillReply('Current Date and Time')">Current Date and Time</button>
+                        <button class="pill" onclick="pillReply('Today\'s Weather')">Today's Weather</button>
+                        <button class="pill" onclick="pillReply('Quote of the day')">Quote of the day</button>
+                        <button class="pill" onclick="pillReply('Stock Market')">Stock Market</button>
+                        <button class="pill" onclick="pillReply('Currency Converter')">Currency Converter</button>
+                        <button class="pill" onclick="pillReply('Movie Recommender')">Movie Recommender</button>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="file" id="fileInput" accept="image/*, .pdf, .doc, .txt" style="display: none;" onchange="processFile(this)">
+                        <i class="fas fa-paperclip" style="color: var(--text-muted); margin-right: 10px; cursor: pointer;" onclick="document.getElementById('fileInput').click()"></i>
+                        <input type="text" id="userInput" placeholder="Ask me anything...">
+                        <button class="send-btn" id="sendAction"><i class="fas fa-arrow-up"></i></button>
+                    </div>
+                </footer>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
