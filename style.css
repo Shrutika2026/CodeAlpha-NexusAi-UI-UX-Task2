@@ -1,0 +1,57 @@
+:root {
+    --bg-dark: #0f0f10; --sidebar-bg: #161618; --card-bg: #000000;
+    --header-footer-grey: #2a2a2c; --accent-green: #4ade80;
+    --text-main: #ffffff; --text-muted: #a1a1aa; --border: rgba(255, 255, 255, 0.1);
+    --toast-bg: var(--accent-green);
+}
+/* Light Mode Changes */
+body.light-mode { background: #f0f2f5; color: #1c1e21; --toast-bg: #2563eb; }
+body.light-mode .chat-card { background: #ffffff; border: 1px solid #ddd; }
+body.light-mode .chat-header, body.light-mode .chat-footer { background: #f8f9fa; border-color: #ddd; }
+body.light-mode .bot-msg { background: #f0f2f5; color: #1c1e21; }
+body.light-mode .user-msg { background: #e7f3ff; color: #1c1e21; border-color: #0084ff; }
+body.light-mode .pill { background: #e4e6eb; border: 1px solid #ccc; color: #1c1e21; }
+body.light-mode #historyBox { background: #ffffff; border-color: #2563eb; color: #1c1e21; }
+body.light-mode #historyContent { color: #1c1e21; }
+body.light-mode #historyContent div { border-color: #eee; }
+body.light-mode .status-info span { color: #2563eb; } 
+body.light-mode .welcome-text { color: #7c3aed !important; } 
+body.light-mode .welcome-desc { color: #000000 !important; } 
+
+/* Specifically making the send button circle blue in light mode */
+body.light-mode .send-btn { background: #2563eb; color: #ffffff; } 
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+body { background-color: #1a1a1d; height: 100vh; display: flex; color: var(--text-main); overflow: hidden; }
+.app-container { display: flex; width: 100%; height: 100vh; }
+.sidebar { width: 70px; background: var(--sidebar-bg); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 1.5rem 0; align-items: center; justify-content: space-between; }
+.side-btn { background: transparent; border: none; color: var(--text-muted); font-size: 1.2rem; padding: 1rem; cursor: pointer; }
+.side-btn.active { color: var(--accent-green); }
+.main-content { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.chat-card { width: 95%; max-width: 900px; height: 90vh; background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.chat-header { background: var(--header-footer-grey); padding: 15px 25px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+.bot-profile { display: flex; align-items: center; gap: 12px; }
+.bot-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.bot-avatar img { width: 100%; height: 100%; object-fit: contain; }
+.status-info h2 { font-size: 1rem; }
+.status-info span { font-size: 0.75rem; color: var(--accent-green); }
+.menu-container { position: relative; }
+.dropdown-menu { position: absolute; top: 40px; right: 0; background: #222; border: 1px solid var(--border); border-radius: 8px; width: 220px; display: none; z-index: 100; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+.dropdown-menu.show { display: block; }
+.menu-item { padding: 12px; font-size: 0.85rem; color: white; border-bottom: 1px solid var(--border); cursor: pointer; display: flex; align-items: center; gap: 10px; transition: 0.2s; }
+.menu-item:hover { background: #333; }
+.chat-body { flex: 1; padding: 25px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; scroll-behavior: smooth; }
+.message { max-width: 80%; padding: 12px 16px; border-radius: 15px; font-size: 0.95rem; line-height: 1.5; }
+.message img { max-width: 100%; border-radius: 10px; margin-top: 5px; display: block; }
+.bot-msg { background: #1e1e1e; align-self: flex-start; border-bottom-left-radius: 2px; }
+.user-msg { background: #2a2a2c; align-self: flex-end; border-bottom-right-radius: 2px; border: 1px solid rgba(74, 222, 128, 0.2); }
+.chat-footer { background: var(--header-footer-grey); padding: 20px; border-top: 1px solid var(--border); }
+.pill-row { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+.pill { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-muted); padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; cursor: pointer; transition: all 0.2s; }
+.input-wrapper { background: #111; border-radius: 30px; display: flex; align-items: center; padding: 5px 15px; border: 1px solid var(--border); }
+.input-wrapper input { flex: 1; background: transparent; border: none; color: white; padding: 10px; outline: none; }
+.send-btn { background: var(--accent-green); color: black; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+#historyBox { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 85%; height: 75%; background: #111; border: 1px solid var(--accent-green); z-index: 200; display: none; border-radius: 15px; padding: 20px; flex-direction: column; }
+#historyContent { flex: 1; overflow-y: auto; font-size: 0.85rem; color: #ccc; }
+#toast { visibility: hidden; min-width: 250px; background-color: var(--toast-bg); color: #fff; text-align: center; border-radius: 10px; padding: 16px; position: fixed; z-index: 1000; left: 50%; top: 30px; transform: translateX(-50%); font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+@media (max-width: 600px) { .sidebar { display: none; } .chat-card { height: 95vh; width: 95%; } .main-content { padding: 10px; } }
